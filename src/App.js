@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";// eslint-disable-line no-unused-vars
+
+import Header from "./header";
+import Main from "./views/main";
+import Apply from "./views/apply";
+import ApplyClosed from "./views/applyClosed";
+import Assign from "./views/assign";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header/>
+      <div>
+        <Route path="/" component={Main} exact={true} />
+        <Route path="/apply" component={Apply} />
+        <Route path="/applyClosed" component={ApplyClosed} />
+        <Route path="/assign" component={Assign} />
+      </div>
     </div>
   );
 }
+
 
 export default App;
